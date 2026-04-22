@@ -7,6 +7,7 @@
 
 ## comment tester ##
 -> creer un dossier datasets/ et mettre dedans le dataset kaggle tel quel
+
 -> executer :
 ```bash
 python gradio-yolo.py 
