@@ -6,7 +6,8 @@
 - utilisation de RapidOCR pour extraction de texte après avoir extrait la plaque avec YOLO
 
 ## comment tester ##
-
+-> creer un dossier datasets/ et mettre dedans le dataset kaggle tel quel
+-> executer :
 ```bash
 python gradio-yolo.py 
 ```
