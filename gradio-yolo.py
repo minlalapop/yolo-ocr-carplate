@@ -9,17 +9,11 @@ import cv2
 from ultralytics import YOLO
 from rapidocr import RapidOCR
 
-# =========================
-# Config
-# =========================
-MODEL_PATH = "/Users/yasmine/Documents/yolo copy/runs/detect/train-3/weights/best.pt"
+
+MODEL_PATH = "/runs/detect/train-3/weights/best.pt"
 model = YOLO(MODEL_PATH)
 engine = RapidOCR()
 
-
-# =========================
-# SAME JUPYTER FUNCTIONS
-# =========================
 def extract_plate(img_org, bounding_box, save_path=None, show=True):
     x1, y1, x2, y2 = map(int, bounding_box)
 
@@ -106,9 +100,8 @@ def analyse_image(number):
     return result.txts
 
 
-# =========================
-# SIMPLE HELPERS FOR GRADIO
-# =========================
+# 
+# 
 def save_uploaded_image(image):
     temp_dir = Path(tempfile.gettempdir()) / "gradio_plate_app"
     temp_dir.mkdir(parents=True, exist_ok=True)
@@ -133,7 +126,7 @@ def pipeline(image):
     image = image.convert("RGB")
     input_path = save_uploaded_image(image)
 
-    # YOLO image with bbox
+   
     yolo_img = yolo_annotated_image(input_path)
 
     # Use SAME notebook logic, with fixed temp number
@@ -141,7 +134,7 @@ def pipeline(image):
     raw_crop_path = f"extracted_plates/Cars{number}_plate.png"
     processed_crop_path = f"extracted_plates/Cars{number}_plate_processed.png"
 
-    # crop using same logic
+  
     img = Image.open(input_path)
     results = model(str(input_path))
     boxes = results[0].boxes.xyxy.cpu().numpy()
@@ -169,9 +162,6 @@ def pipeline(image):
     return yolo_img, processed_plate, text
 
 
-# =========================
-# SIMPLE PINK UI
-# =========================
 CSS = """
 body { background: #fff7fb; }
 .gradio-container { background: #fff7fb; font-family: 'Segoe UI', sans-serif; }
