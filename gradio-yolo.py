@@ -10,7 +10,7 @@ from ultralytics import YOLO
 from rapidocr import RapidOCR
 
 
-MODEL_PATH = "/runs/detect/train-3/weights/best.pt"
+MODEL_PATH = "runs/detect/train-3/weights/best.pt"
 model = YOLO(MODEL_PATH)
 engine = RapidOCR()
 
