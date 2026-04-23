@@ -5,11 +5,18 @@
 - notebook détaillé : car-yolo.ipynb
 - utilisation de RapidOCR pour extraction de texte après avoir extrait la plaque avec YOLO
 
-## comment tester ##
--> creer un dossier datasets/ et mettre dedans le dataset kaggle tel quel
+## contenu 
+- voir notebook : car-yolo.ipynb
+- voir evalutation/metrics/graphics : runs/train-3/
 
--> executer :
+## comment tester ##
+- installer requirements 
+```bash
+pip install -r requirements.txt
+```
+- unzip le dataset kaggle dans datasets/
+- tester YOLO+OCR facilement avec gradio
 ```bash
 python gradio-yolo.py 
 ```
-gradio permet de tester rapidement le système avec n'importe quelle image.
+NB : gradio permet de tester rapidement le système avec n'importe quelle image.
