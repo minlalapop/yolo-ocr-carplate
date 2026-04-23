@@ -1,6 +1,6 @@
 .ipynb_checkpoints/
 .DS_Store
 datasets/**
-runs/detect/train/**
-runs/detect/train-2/**
+runs/detect/train/
+runs/detect/train-2/
 extracted_plates/.ipynb_checkpoints/
